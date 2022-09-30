@@ -115,12 +115,13 @@ class Rectangle(Base):
                 print("#", end="")
             print()
 
-     def __str__(self):
+    def __str__(self):
         """Returns a string representation of a Rectangle instance."""
 
         s = "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height)
         return s
+
     def update(self, *args, **kwargs):
         """Updates attributes of an instance.
         Args:
@@ -159,3 +160,9 @@ class Rectangle(Base):
                 if key == "y":
                     self.y = value
 
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle."""
+
+        my_dict = {'id': self.id, 'width': self.__width,
+                   'height': self.__height, 'x': self.__x, 'y': self.__y}
+        return my_dict
